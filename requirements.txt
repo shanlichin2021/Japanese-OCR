@@ -1,0 +1,63 @@
+# MangaReader-OCR Dependencies
+# High-precision Japanese OCR desktop application
+
+# ============================================
+# Core OCR Engines
+# ============================================
+# Primary: manga-ocr (Vision Encoder-Decoder for manga/games)
+manga-ocr>=0.1.9
+# manga-ocr automatically installs:
+# - torch (PyTorch for neural network)
+# - transformers (Hugging Face transformers)
+# - numpy (numerical computing)
+# - fugashi (Japanese tokenizer)
+# - unidic-lite (Japanese dictionary)
+
+# Alternative: PaddleOCR with japan_PP-OCRv3 model
+# Lightweight (8.8MB model) with good Japanese support
+paddlepaddle>=2.5.0
+paddleocr>=2.7.0
+# Note: paddlepaddle must be installed BEFORE paddleocr
+# For GPU support, install paddlepaddle-gpu instead:
+#   pip uninstall paddlepaddle
+#   pip install paddlepaddle-gpu  # or paddlepaddle-gpu==3.0.0 -i https://www.paddlepaddle.org.cn/packages/stable/cu118/
+
+# ============================================
+# GUI Framework - PyQt6
+# ============================================
+PyQt6>=6.5.0
+
+# ============================================
+# Image Processing
+# ============================================
+# Using headless version to avoid Qt conflicts
+opencv-python-headless>=4.8.0
+Pillow>=10.0.0
+
+# ============================================
+# Global Input Handling
+# ============================================
+keyboard>=0.13.5
+mouse>=0.7.1
+
+# ============================================
+# Clipboard Operations
+# ============================================
+pyperclip>=1.8.2
+
+# ============================================
+# Numerical Computing (explicit for preprocessing)
+# ============================================
+numpy
+
+# ============================================
+# NOTE: PyTorch GPU Support
+# ============================================
+# By default, pip installs CPU-only PyTorch.
+# For NVIDIA GPU acceleration, uninstall and reinstall:
+#
+#   pip uninstall torch
+#   pip install torch --index-url https://download.pytorch.org/whl/cu121
+#
+# Replace 'cu121' with your CUDA version (cu118, cu121, etc.)
+# Check your CUDA version with: nvidia-smi
